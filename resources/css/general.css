@@ -3,6 +3,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 body{
 }
 
+a{
+  /* text-decoration: none; */
+}
+
 .dark-blue{
   color: #fff !important;
   background-color: #1C2052 !important;
@@ -14,13 +18,25 @@ body{
 
 #sidebar{
   right: 0;
+  top: 0px;
   display: none;
   z-index: 5;
 }
 
+#overlay{
+  /* z-index: 3; */
+}
 #navigationbar{
   position: -webkit-sticky; /*safari*/
   position: sticky;
   top: 0px;
   z-index: 2;
+}
+
+.download-button{
+
+}
+
+.hidden{
+  display: none;
 }

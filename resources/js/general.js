@@ -24,3 +24,17 @@ function w3_close() {
 function scrollToTopSmooth(){
   window.scrollTo({top: 0, behavior: "smooth"});
 }
+
+// Zu Menüpunkt scrollen
+function srollToPoint(point){
+  //scroll to methods with offset because of Header
+  let headerOffset = 65;
+  let bodyRect = document.body.getBoundingClientRect().top;
+  let pointContainerRect = document.getElementById(point).getBoundingClientRect().top;
+  let pointContainerPosition = pointContainerRect - bodyRect;
+  let offsetPostion = pointContainerPosition - headerOffset;
+  window.scrollTo({
+    top: offsetPostion,
+    behavior: "smooth"
+  });
+}
