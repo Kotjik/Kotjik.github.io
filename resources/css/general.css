@@ -2,3 +2,25 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 body{
 }
+
+.dark-blue{
+  color: #fff !important;
+  background-color: #1C2052 !important;
+}
+
+.text-dark-blue{
+  color: #1C2052 !important;
+}
+
+#sidebar{
+  right: 0;
+  display: none;
+  z-index: 5;
+}
+
+#navigationbar{
+  position: -webkit-sticky; /*safari*/
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+}

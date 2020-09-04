@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Lebenslauf - Konstantin Kulik</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,11 +12,49 @@
 </style>
 <body class="w3-light-grey">
 
-<div class="w3-container w3-teal w3-center w3-card-4">
-  <h1>Füge hier Menüpunkte ein</h1>
+<!-- TODO: Responsive Navigation Bar -->
+<!-- TODO: Downloads -->
+<!-- TODO: Contact Links -->
+<!-- TODO: Language options -->
+<!-- TODO: Dark mode? -->
+
+<div class="w3-container w3-bar dark-blue w3-card-4" id="navigationbar">
+  <div class="w3-left w3-large">
+    <a href="#" class="w3-bar-item w3-button">KONSTANTIN KULIK</a>
+  </div>
+
+  <div class="w3-right w3-hide-small w3-hide-medium">
+
+    <a href="#" class="w3-bar-item w3-button w3-large">ZUR PERSON</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">BERUFSERHFARUNG</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">AUSBILDUNG</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">KENNTNISSE</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">KONTAKT</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">DOWNLOADS</a>
+
+  </div>
+  <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+  <div class="w3-hide-large w3-sidebar w3-bar-block w3-animate-right text-dark-blue" id="sidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Schliesen ×</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">ZUR PERSON</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">BERUFSERHFARUNG</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">AUSBILDUNG</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">KENNTNISSE</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">KONTAKT</a>
+    <a href="#" class="w3-bar-item w3-button w3-large">DOWNLOADS</a>
+  </div>
+
+
+
 </div>
 
 <!-- Page Container -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" id="overlay"></div>
+
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
   <!-- The Grid -->
@@ -28,92 +66,92 @@
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
           <img src="resources/img/Konstantin-Kulik.jpg" style="width:100%" alt="Konstantin Kulik">
-          <div class="w3-display-bottomleft w3-container w3-teal" style="width: 100%">
+          <div class="w3-display-bottomleft w3-container dark-blue" style="width: 100%">
             <h2><b>Konstantin Kulik</b></h2>
           </div>
         </div>
         <div class="w3-container">
-          <p><i class="fas fa-graduation-cap fa-fw w3-margin-right w3-large w3-text-teal"></i>M.Sc. Medieninformatik</p>
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Professional in Customer-Relationship-Management</p>
-          <p><i class="fas fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>03.05.1998</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Brunnleite 9, 93152 Nittendorf</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>kulik.konstantin@gmx.de</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+49 176 97672795</p>
+          <p><i class="fas fa-graduation-cap fa-fw w3-margin-right w3-large text-dark-blue"></i>M.Sc. Medieninformatik</p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large text-dark-blue"></i>Professional in Customer-Relationship-Management</p>
+          <p><i class="fas fa-birthday-cake fa-fw w3-margin-right w3-large text-dark-blue"></i>03. Mai 1998 | Gauf, Russland</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large text-dark-blue"></i>Brunnleite 9, 93152 Nittendorf</p>
+          <p><a href="mailto:kulik.konstantin@gmx.de"><i class="fa fa-envelope fa-fw w3-margin-right w3-large text-dark-blue"></i>kulik.konstantin@gmx.de</a></p>
+          <p><a href="tel:+4917697672795"><i class="fa fa-phone fa-fw w3-margin-right w3-large text-dark-blue"></i>+4917697672795</a></p>
           <hr>
 
-          <p class="w3-large"><b><i class="fas fa-code fa-fw w3-margin-right w3-text-teal"></i>Programmiersprachen</b></p>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Java</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Python</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">C</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">C#</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">SQL</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">XML</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">HTML</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">CSS</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">JavaScript</span>
+          <p class="w3-large"><b><i class="fas fa-code fa-fw w3-margin-right text-dark-blue"></i>Programmiersprachen</b></p>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Java</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Python</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">C</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">C#</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">SQL</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">XML</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">HTML</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">CSS</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">JavaScript</span>
           <br>
 
-          <p class="w3-large"><b><i class="far fa-window-restore fa-fw w3-margin-right w3-text-teal"></i>Tools und Technologien</b></p>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Github</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Android Studio</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Visual Studio</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">IntelliJ IDEA</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Unity</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Adobe Photoshop</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Adobe Indesign</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Microsoft Excel</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Microsoft Word</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Microsoft Powerpoint</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Microsoft Outlook</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Windows</span>
-          <span class="w3-tag w3-teal w3-round w3-margin-right w3-margin-bottom">Linux</span>
+          <p class="w3-large"><b><i class="far fa-window-restore fa-fw w3-margin-right text-dark-blue"></i>Tools und Technologien</b></p>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Github</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Android Studio</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Visual Studio</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">IntelliJ IDEA</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Unity</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Adobe Photoshop</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Adobe Indesign</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Microsoft Excel</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Microsoft Word</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Microsoft Powerpoint</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Microsoft Outlook</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Windows</span>
+          <span class="w3-tag dark-blue w3-round w3-margin-right w3-margin-bottom">Linux</span>
           <br>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Kenntnisse</b></p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right text-dark-blue"></i>Kenntnisse</b></p>
           <p>Microsoft Office</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:95%"></div>
+            <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:95%"></div>
           </div>
           <p>Anwendungsprogrammierung / Softwareentwicklung</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:90%"></div>
+              <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:90%"></div>
             </div>
           </div>
           <p>Webentwicklung</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:90%"></div>
+            <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:90%"></div>
           </div>
           <p>UX / UI</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:90%"></div>
+            <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:90%"></div>
           </div>
           <p>Projektmanagement</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:80%"></div>
+            <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:80%"></div>
           </div>
           <p>Bildbearbeitung in Adobe Photoshop</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height: 18px; width:75%"></div>
+            <div class="w3-container w3-center w3-round-xlarge dark-blue" style="height: 18px; width:75%"></div>
           </div>
           <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Sprachen</b></p>
+          <p class="w3-large w3-text-theme"><b><i class="fas fa-language fa-fw w3-margin-right text-dark-blue"></i>Sprachen</b></p>
           <p>Deutsch</p>
           <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:18px;width:100%"></div>
+            <div class="w3-round-xlarge dark-blue" style="height:18px;width:100%"></div>
           </div>
           <p>Englisch</p>
           <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:18px;width:85%"></div>
+            <div class="w3-round-xlarge dark-blue" style="height:18px;width:85%"></div>
           </div>
           <p>Russisch</p>
           <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:18px;width:60%"></div>
+            <div class="w3-round-xlarge dark-blue" style="height:18px;width:60%"></div>
           </div>
           <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fas fa-address-card fa-fw w3-margin-right w3-text-teal"></i>Führerschein</b></p>
+          <p class="w3-large w3-text-theme"><b><i class="fas fa-address-card fa-fw w3-margin-right text-dark-blue"></i>Führerschein</b></p>
           <p>Klasse B</p>
           <br>
         </div>
@@ -126,74 +164,89 @@
     <div class="w3-twothird">
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Berufserfahrung</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge text-dark-blue"></i>Berufserfahrung</h2>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Professional in Customer-Relationship-Management</b></h5>
           <h5 class="w3-opacity">@ Omniga GmbH & Co.KG</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - <span class="w3-tag w3-teal w3-round">Aktuell</span></h6>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6>
           <!-- <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p> -->
           <hr>
         </div>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Assistant in Product Management</b></h5>
           <h5 class="w3-opacity">@ Omniga GmbH & Co.KG</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>März 2018 - September 2019</h6>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>März 2018 - September 2019</h6>
           <hr>
         </div>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Tutor für den Kurs "Einführung in die Informatik und Medieninformatik"</b></h5>
           <h5 class="w3-opacity">@ Universität Regensburg</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2017 - März 2018</h6>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2017 - März 2018</h6>
+          <br>
         </div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Ausbildung</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge text-dark-blue"></i>Ausbildung</h2>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>M.Sc. Medieninformatik</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - <span class="w3-tag w3-teal w3-round">Aktuell</span></h6>
-          <p>Universität Regensburg</p>
+          <h5 class="w3-opacity"><b>M.Sc. Medieninformatik</b> | TBD</h5>
+          <h5 class="w3-opacity">@ Universität Regensburg</h5>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>B.A. Medieninformatik & Informationswissenschaft</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2016 - Mai 2020</h6>
-          <p>Universität Regensburg</p>
+          <h5 class="w3-opacity"><b>B.A. Medieninformatik & Informationswissenschaft</b> | &empty; 1,9</h5>
+          <h5 class="w3-opacity">@ Universität Regensburg</h5>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2016 - Mai 2020</h6>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Allgemeine Hochschulreife</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2016</h6>
-          <p>Goethe-Gymnasium Regensburg</p><br>
+          <h5 class="w3-opacity"><b>Allgemeine Hochschulreife</b> | &empty; 2,2</h5>
+          <h5 class="w3-opacity">@ Goethe-Gymnasium Regensburg</h5>
+          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2016</h6>
+          <br>
         </div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-project-diagram fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>IT-Projekte</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fas fa-project-diagram fa-fw w3-margin-right w3-xxlarge text-dark-blue"></i>IT-Projekte</h2>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Website: Online Remote Usability Methoden Ratgeber</b></h5>
+          <h5 class="w3-opacity"><i class="fas fa-globe w3-margin-right"></i><b>Website | Online Remote Usability Methodenratgeber</b></h5>
+          <h6>Wissens- und Methodenplattform für Remote-Studien</h6>
+          <p><a href="https://kotjik.github.io/Remote-Methoden/" target="_blank">kotjik.github.io/Remote-Methoden/ <i class="fas fa-external-link-alt"></i></a></p>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Android-App: Elektronisches Haushaltsbuch</b></h5>
+          <h5 class="w3-opacity"><i class="fas fa-mobile w3-margin-right"></i><b>Android-App | Elektronisches Haushaltsbuch</b></h5>
+          <h6>Mobile Anwendung für die Android-Plattform für das Pflegen eines elektronischen Haushaltsbuchs</h6>
+          <p><a href="https://kotjik.github.io/Elektronisches-Haushaltsbuch/" target="_blank">kotjik.github.io/Elektronisches-Haushaltsbuch/ <i class="fas fa-external-link-alt"></i></a></p>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Computerspiel: Flappy Dragon</b></h5>
+          <h5 class="w3-opacity"><i class="fas fa-desktop w3-margin-right"></i><b>Computerspiel | Flappy Dragon</b></h5>
+          <h6>Geschicklichkeits- und Jump-&-Run Videospiel entwickelt mit Unity</h6>
+          <p><a href="https://kotjik.github.io/RFlappy-Dragon" target="_blank">kotjik.github.io/Flappy-Dragon/ [TBD] <i class="fas fa-external-link-alt"></i></a></p>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Computerspiel: Memory in Python</b></h5>
+          <h5 class="w3-opacity"><i class="fas fa-chess-board w3-margin-right"></i><b>Computerspiel | Fruit Memory</b></h5>
+          <h6>Das klassisches Kartenspiel Memory geschrieben in Python</h6>
+          <p></i><a href="https://github.com/kallutox/python_project_memory" target="_blank">github.com/kallutox/python_project_memory/ <i class="fas fa-external-link-alt"></i></a></p>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Website: Zettelkasten Online</b></h5>
-          <hr>
+          <h5 class="w3-opacity"><b><i class="fas fa-globe w3-margin-right"></i>Website | Zettelkasten Online</b></h5>
+          <h6>Anwendung zur Verwaltung und der übersichtlichen Darstellung von gesammelten Notizen und Literatur</h6>
+          <p></i><a href="https://kotjik.github.io/Zettelkasten-Online/" target="_blank">kotjik.github.io/Zettelkasten-Online/ <i class="fas fa-external-link-alt"></i></a></p>
+          <br>
+          <!-- <hr> -->
         </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>(Voller Bugs) Datenvisualisierung: Harry Potter Bücher</b></h5>
+        <!-- <div class="w3-container">
+          <h5 class="w3-opacity"><i class="fas fa-chart-pie w3-margin-right"></i><b> Datenvisualisierung | Harry Potter Bücher</b> </h5>
+          <h6>Illustration von Daten wie verwendeter Zaubersprüche oder persönlichen Beziehungen aus der Harry Potter Bücherreihe</h6>
+          <i class="fas fa-external-link-alt w3-margin-right"></i><a href="TBD">TBD</a>
           <hr>
-        </div>
+        </div> -->
 
       </div>
 
@@ -209,10 +262,19 @@
   <!-- End Page Container -->
 </div>
 
-<footer class="w3-container w3-teal w3-center w3-margin-top w3-padding-bottom">
-  <p>Kontaktieren Sie mich.</p>
+<footer class="w3-container dark-blue w3-center w3-margin-top w3-padding-bottom">
+  <h5 class="w3-margin-top">Kontaktieren Sie mich!</h5>
+  <p class="w3-xlarge">
+    <a href="#" class="w3-margin"><i class="fas fa-envelope"></i></a>
+    <a href="#" class="w3-margin"><i class="fas fa-phone"></i></a>
+    <a href="#" class="w3-margin"><i class="fab fa-linkedin"></i></a>
+    <a href="#" class="w3-margin"><i class="fab fa-xing-square"></i></a>
+    <a href="#" class="w3-margin"><i class="fab fa-github"></i></a>
+  </p>
 
 </footer>
+
+<script src="resources/js/general.js"></script>
 
 </body>
 </html>
