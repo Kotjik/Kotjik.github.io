@@ -18,28 +18,29 @@
 <!-- TODO: Language options -->
 <!-- TODO: Dark mode? -->
 
-<div class="w3-container w3-bar dark-blue w3-card-4" id="navigationbar">
-  <div class="w3-left w3-large">
-    <a href="#" class="w3-bar-item w3-button">KONSTANTIN KULIK</a>
+
+<div class="w3-top">
+  <div class=" w3-bar dark-blue w3-card-4" id="navigationbar">
+    <a href="#" class="w3-bar-item w3-button w3-wide">KONSTANTIN KULIK</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small w3-hide-medium">
+      <a href="#" class="w3-bar-item w3-button ">ZUR PERSON</a>
+      <a href="#" class="w3-bar-item w3-button ">BERUFSERHFARUNG</a>
+      <a href="#" class="w3-bar-item w3-button ">AUSBILDUNG</a>
+      <a href="#" class="w3-bar-item w3-button ">KENNTNISSE</a>
+      <a href="#" class="w3-bar-item w3-button ">KONTAKT</a>
+      <a href="#" class="w3-bar-item w3-button ">DOWNLOADS</a>
+    </div>
+
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
-
-  <div class="w3-right w3-hide-small w3-hide-medium">
-
-    <a href="#" class="w3-bar-item w3-button w3-large">ZUR PERSON</a>
-    <a href="#" class="w3-bar-item w3-button w3-large">BERUFSERHFARUNG</a>
-    <a href="#" class="w3-bar-item w3-button w3-large">AUSBILDUNG</a>
-    <a href="#" class="w3-bar-item w3-button w3-large">KENNTNISSE</a>
-    <a href="#" class="w3-bar-item w3-button w3-large">KONTAKT</a>
-    <a href="#" class="w3-bar-item w3-button w3-large">DOWNLOADS</a>
-
-  </div>
-  <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-    <i class="fa fa-bars"></i>
-  </a>
 </div>
 
-<div class="w3-hide-large w3-sidebar w3-bar-block w3-animate-right text-dark-blue" id="sidebar">
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-hide-large w3-sidebar w3-card w3-bar-block w3-animate-right text-dark-blue" id="sidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Schliesen ×</a>
   <a href="#" class="w3-bar-item w3-button w3-large">ZUR PERSON</a>
   <a href="#" class="w3-bar-item w3-button w3-large">BERUFSERHFARUNG</a>
@@ -47,11 +48,92 @@
   <a href="#" class="w3-bar-item w3-button w3-large">KENNTNISSE</a>
   <a href="#" class="w3-bar-item w3-button w3-large">KONTAKT</a>
   <a href="#" class="w3-bar-item w3-button w3-large">DOWNLOADS</a>
-</div>
+</nav>
 
 <!-- Overlay -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" id="overlay"></div>
 
+<!-- Profile Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="resources/img/Konstantin-Kulik-wide.jpg" alt="Buildings" width="700" height="394">
+    </div>
+    <div class="w3-col m6">
+      <h3>Konstantin Kulik</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> Lebenslauf herunterladen</a></p>
+      <p>Mich kontaktieren</p>
+      <p class="w3-xlarge">
+        <a href="#" class="w3-margin"><i class="fas fa-envelope"></i></a>
+        <a href="#" class="w3-margin"><i class="fas fa-phone"></i></a>
+        <a href="#" class="w3-margin"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="w3-margin"><i class="fab fa-xing-square"></i></a>
+        <a href="#" class="w3-margin"><i class="fab fa-github"></i></a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">Berufserfahrung</h3>
+  <div class="container">
+
+   <div class="timeline-block timeline-block-right">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h3>First Year</h3>
+         <span>Some work experience</span>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block timeline-block-left">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h3>Seconed Year</h3>
+         <span>Some work experience</span>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block timeline-block-right">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h3>Third Year</h3>
+         <span>Some work experience</span>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block timeline-block-left">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h3>Fourth Year</h3>
+         <span>Some work experience</span>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+      </div>
+   </div>
+
+   <div class="timeline-block timeline-block-right">
+      <div class="marker"></div>
+      <div class="timeline-content">
+         <h3>Fifth Year</h3>
+         <span>Some work experience</span>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+      </div>
+   </div>
+</div>
+</div>
+
+
+
+
+
+<!-- Umstellung der Daten -->
+<div style="height: 80vh; background-color: #eee;">
+</div>
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
