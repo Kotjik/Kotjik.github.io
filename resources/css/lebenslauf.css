@@ -1,0 +1,30 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+body{
+
+}
+
+a{
+  text-decoration: none;
+}
+
+.w3-bar .w3-button{
+  padding: 16px;
+}
+
+.w3-top{
+  z-index: 999;
+}
+
+.dark-blue{
+  color: #fff !important;
+  background-color: #1C2052 !important;
+}
+
+.text-dark-blue{
+  color: #1C2052 !important;
+}
+
+.hidden{
+  display: none;
+}
