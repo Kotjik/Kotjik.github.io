@@ -55,6 +55,11 @@ a{
   z-index: 999;
 }
 
+
+#message-box{
+  height: 200px;
+}
+
 .download-button{
 
 }
@@ -62,6 +67,9 @@ a{
 .hidden{
   display: none;
 }
+
+
+
 
 
 /* Timeline */
