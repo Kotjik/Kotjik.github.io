@@ -26,7 +26,7 @@ function scrollToTopSmooth(){
 }
 
 // Zu Menüpunkt scrollen
-function srollToPoint(point){
+function scrollToPoint(point){
   //scroll to methods with offset because of Header
   let headerOffset = 65;
   let bodyRect = document.body.getBoundingClientRect().top;
