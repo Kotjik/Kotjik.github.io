@@ -8,6 +8,19 @@ a{
   text-decoration: none;
 }
 
+@media print {
+    div.dark-blue {
+        background-color: #1a4567 !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+@media print {
+    .dark-blue div {
+        color: white !important;
+    }
+}
+
 .w3-bar .w3-button{
   padding: 16px;
 }
