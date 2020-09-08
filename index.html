@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="resources/css/index.css" />
 <style>
 </style>
-<body class="w3-light-grey" id="body">
+<body class="" id="body">
 
 <!-- TODO: Responsive Navigation Bar -->
 <!-- TODO: Downloads -->
@@ -54,20 +54,23 @@
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" id="overlay"></div>
 
 <!-- Profile Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="kontakt">
-  <div class="w3-row-padding">
+
+<div class="w3-light-gray kontakt-container">
+<div class="w3-container kontakt ">
+  <div class=" w3-row ">
     <!-- links -->
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large w3-right" src="resources/img/Konstantin-Kulik-wide.jpg" alt="Buildings" width="700" height="394">
+    <div class="w3-col m6  profile-picture-container w3-mobile">
+      <img class="profile-picture w3-image w3-grayscale-max w3-mobile" src="resources/img/Konstantin-Kulik_quadrat.jpg" alt="Konstantin Kulik">
     </div>
     <!-- rechts -->
-    <div class="w3-col m6">
-      <div class="w3-container text-dark-blue">
-        <h3>Konstantin Kulik</h3>
-        <h4>Softwareentwickler & UX-Designer</h4>
+    <div class="w3-col m6  w3-mobile w3-white text-dark-blue" id="contact-info">
+
+      <div class="w3-container">
+        <h2>Konstantin Kulik</h2>
+        <h3>Softwareentwickler & UX-Designer</h3>
       </div>
 
-      <div class="w3-container text-dark-blue">
+      <div class="w3-container w3-margin-bottom">
         <p><b>E-Mail-Adresse</b> <br/>kulik.konstantin@gmx.de</p>
         <p><b>Telefon:</b> <br/>+49 (0) 176 97672795</p>
         <p><b>Geburtsdatum</b> <br/>03. Mai 1998</p>
@@ -79,11 +82,10 @@
           </button>
         </a>
       </div>
-    </div>
   </div>
-
-  <div class="w3-row-padding">
-        <p class="w3-xlarge text-dark-blue w3-center">
+  </div>
+  <div class="w3-row-padding  dark-blue" id="contact-links">
+        <p class="w3-large w3-center">
           <a href="mailto:kulik.konstantin@gmx.de" class="w3-margin"><i class="fas fa-envelope"></i></a>
           <a href="tel:+4917697672795" class="w3-margin"><i class="fas fa-phone"></i></a>
           <a href="https://www.linkedin.com/in/konstantin-kulik-1454651b0/" target="_blank"class="w3-margin"><i class="fab fa-linkedin"></i></a>
@@ -92,13 +94,16 @@
         </p>
     </div>
 
-
   </div>
 </div>
 
+
+
 <!-- BERUFSERHFARUNG Section -->
-<div class="w3-container" id="berufserfahrung">
-  <h3 class="w3-center">Berufserfahrung</h3>
+<div class="w3-container " id="berufserfahrung">
+
+  <h3 class="w3-center w3-margin-top">Berufserfahrung</h3>
+  <hr/>
   <div class="container">
 
    <div class="timeline-block timeline-block-right">
@@ -132,8 +137,10 @@
 </div>
 
 <!-- AUSBILDUNG Section -->
-<div class="w3-container" id="ausbildung">
+<div class="w3-container " id="ausbildung">
+  <hr/>
   <h3 class="w3-center">Ausbildung</h3>
+  <hr/>
   <div class="container">
 
    <div class="timeline-block timeline-block-right">
@@ -153,10 +160,13 @@
          <h5>Notendurchschnitt: 1,9 &empty;</h5>
          <span>Universität Regensburg</span>
          <h6 class="text-dark-blue">Oktober 2016 - Mai 2020 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-         <p class="w3-right">
+         <p class="w3-mobile">
            <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-             <button class="w3-button dark-blue">
+             <button class="w3-hide-small w3-mobile w3-button dark-blue">
                Bachelorzeugnis<i class="fas fa-arrow-circle-down w3-margin-right"></i>
+             </button>
+             <button class="w3-hide-medium w3-hide-large w3-mobile w3-button dark-blue">
+               <i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelorzeugnis
              </button>
            </a>
          </p>
@@ -170,9 +180,9 @@
          <h5>&empty; Notendurchschnitt: 2,2</h5>
          <span>Goethe-Gymnasium Regensburg</span>
          <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2016</h6>
-         <p class="w3-left">
+         <p class="w3-mobile w3-left">
            <a class="download-button" href="resources/downloads/Abiturzeugnis.pdf" download="Konstantin-Kulik_Abiturzeugnis" target="_blank">
-             <button class="w3-button dark-blue">
+             <button class="w3-mobile w3-button dark-blue">
                <i class="fas fa-arrow-circle-down w3-margin-right"></i>Abiturzeugnis
              </button>
            </a>
@@ -184,8 +194,10 @@
 </div>
 
 <!-- KENNTNISSE Section -->
-<div class="w3-container w3-light-grey w3-padding-64" id="kenntnisse">
+<div class="w3-container w3-padding-64" id="kenntnisse">
+  <hr/>
   <h3 class="w3-center">Kenntnisse</h3>
+  <hr/>
   <div class="w3-row-padding">
 
       <!-- Programmiersprachen & Tools -->
@@ -278,7 +290,9 @@
 
 <!-- IT-PROJEKTE Section -->
 <div class="w3-container" id="it-projekte">
+  <hr/>
   <h3 class="w3-center">IT-PROJEKTE</h3>
+  <hr/>
   <!-- First row -->
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
     <div class="w3-col w3-third w3-margin-bottom ">
@@ -375,7 +389,9 @@
 
 <!-- Download Section -->
 <div class="w3-container" style="padding:128px 16px" id="downloads">
+  <hr/>
   <h3 class="w3-center">DOWNLOADS</h3>
+  <hr/>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-third">
       <i class="fas fa-user w3-margin-bottom w3-jumbo w3-center"></i>
