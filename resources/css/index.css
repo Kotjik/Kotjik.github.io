@@ -37,6 +37,44 @@ a{
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
+.kontakt-container{
+  padding: 100px 0;
+}
+.kontakt{
+  /* margin: auto;
+  margin-top: 200px;
+  padding: 0;
+  height: 100%; */
+  margin:  auto;
+  max-width: 1000px;
+}
+
+@media(max-width: 600px){
+  .kontakt-container{
+    /* das nervt */
+    display: block;
+    width: 100% !important;
+  }
+}
+
+.profile-picture{
+  width: 100%;
+  flex-grow: 1;
+}
+
+.profile-picture-container{
+  flex-grow: 1;
+}
+
+#contact-info{
+  padding:30px;
+  flex-grow: 1;
+}
+
+#contact-links{
+
+}
+
 #sidebar{
   right: 0;
   top: 0px;
@@ -80,11 +118,6 @@ a{
    outline: none;
 }
 
-body {
-   margin: 0;
-   font-family: 'Roboto', sans-serif;
-   background: #F1F2F6;
-}
 
 h1 {
    text-align: center;
