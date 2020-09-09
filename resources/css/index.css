@@ -24,6 +24,11 @@ a{
   color: #1C2052 !important;
 }
 
+.w3-button:hover{
+  background-color: #343B99 !important;
+  color: #fff !important;
+}
+
 
 .it-project-image{
   width: 100%;
@@ -66,7 +71,7 @@ a{
   flex-grow: 1;
 }
 
-#contact-info{
+.contact-info{
   padding:30px;
   flex-grow: 1;
 }
@@ -96,6 +101,19 @@ a{
 
 #message-box{
   height: 200px;
+}
+
+#kenntnisse{
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+#downloads{
+
+}
+
+#footer{
+  margin-top: 0;
 }
 
 .download-button{
