@@ -139,6 +139,9 @@ a{
   display: none;
 }
 
+.break{
+  word-break: break-word;
+}
 
 
 
