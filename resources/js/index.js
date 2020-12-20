@@ -38,3 +38,23 @@ function scrollToPoint(point){
     behavior: "smooth"
   });
 }
+
+
+// Sprache ändern
+function changeLanguage(checkbox){
+  let germanContent = document.getElementsByClassName("german");
+  let englishContent = document.getElementsByClassName("english");
+
+
+  if(checkbox.checked == true){
+    for(let i = 0; i < germanContent.length; i++){
+      germanContent[i].classList.add("hidden");
+      englishContent[i].classList.remove("hidden");
+    }
+  }else{
+    for(let i = 0; i < germanContent.length; i++){
+      germanContent[i].classList.remove("hidden");
+      englishContent[i].classList.add("hidden");
+    }
+  }
+}
