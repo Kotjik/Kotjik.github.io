@@ -19,6 +19,16 @@ a{
   z-index: 999;
 }
 
+/* Matching gradient
+https://mycolor.space/?hex=%231C2052&sub=1
+#1c2052
+#00457d
+#006b9e
+#0092b2
+#00b9ba
+#41deb7
+ */
+
 .dark-blue{
   color: #fff !important;
   background-color: #1C2052 !important;
