@@ -291,6 +291,7 @@ h1 span {
 .dropdown-content {
   display: none;
   position: absolute;
+  background-color: #fff;
   right: 0;
   /* min-width: 160px; */
   min-width: max-content;
@@ -309,6 +310,7 @@ h1 span {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:focus .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #1C2052; color: #fff;}
+.dropdown-content:hover .dropbtn {background-color: #1C2052; color: #fff;}
 
 
 /* Toggle Switch  */
