@@ -49,11 +49,15 @@ function changeLanguage(checkbox){
   if(checkbox.checked == true){
     for(let i = 0; i < germanContent.length; i++){
       germanContent[i].classList.add("hidden");
+    }
+    for(let i = 0; i < englishContent.length; i++){
       englishContent[i].classList.remove("hidden");
     }
   }else{
     for(let i = 0; i < germanContent.length; i++){
       germanContent[i].classList.remove("hidden");
+    }
+    for(let i = 0; i < englishContent.length; i++){
       englishContent[i].classList.add("hidden");
     }
   }
