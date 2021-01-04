@@ -1,6 +1,19 @@
 let sidebar = document.getElementById("sidebar");
 let overlay = document.getElementById("overlay");
 
+let language_checkboxes = document.getElementsByClassName("language_checkbox");
+let germanContent = document.getElementsByClassName("german");
+let englishContent = document.getElementsByClassName("english");
+
+if(localStorage.getItem("language")===null){
+  console.log("localStorage is null");
+}else if (localStorage.getItem("language") === "german"){
+
+}else if (localStorage.getItem("language") === "english"){
+
+}
+
+
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 function w3_open() {
@@ -42,23 +55,29 @@ function scrollToPoint(point){
 
 // Sprache ändern
 function changeLanguage(checkbox){
-  let germanContent = document.getElementsByClassName("german");
-  let englishContent = document.getElementsByClassName("english");
-
 
   if(checkbox.checked == true){
+    for(let i = 0; i < language_checkboxes; i++){
+      language_checkboxes[i].checked = true;
+    }
     for(let i = 0; i < germanContent.length; i++){
       germanContent[i].classList.add("hidden");
     }
     for(let i = 0; i < englishContent.length; i++){
       englishContent[i].classList.remove("hidden");
     }
+    localStorage.setItem("language", "german");
+
   }else{
+    for(let i = 0; i < language_checkboxes; i++){
+      language_checkboxes[i].checked = false;
+    }
     for(let i = 0; i < germanContent.length; i++){
       germanContent[i].classList.remove("hidden");
     }
     for(let i = 0; i < englishContent.length; i++){
       englishContent[i].classList.add("hidden");
     }
+    localStorage.setItem("language", "english");
   }
 }

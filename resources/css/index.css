@@ -43,6 +43,13 @@ https://mycolor.space/?hex=%231C2052&sub=1
   color: #fff !important;
 }
 
+.attention p{
+  padding: 10px 10px;
+  margin: 20px auto;
+  background-color: white;
+  display: inline-block;
+}
+
 
 .it-project-image{
   width: 100%;
@@ -58,7 +65,14 @@ https://mycolor.space/?hex=%231C2052&sub=1
 
 .kontakt-container{
   padding: 100px 0;
+  background-image: url("../img/background.jpg");
+  /* Parallax Effekt  */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .kontakt{
   /* margin: auto;
   margin-top: 200px;
@@ -66,6 +80,7 @@ https://mycolor.space/?hex=%231C2052&sub=1
   height: 100%; */
   margin:  auto;
   max-width: 1000px;
+
 }
 
 @media(max-width: 600px){
