@@ -5,15 +5,29 @@ let language_checkboxes = document.getElementsByClassName("language_checkbox");
 let germanContent = document.getElementsByClassName("german");
 let englishContent = document.getElementsByClassName("english");
 
+
+// Check for user preferences
 if(localStorage.getItem("language")===null){
   console.log("localStorage is null");
+
 }else if (localStorage.getItem("language") === "german"){
+  if(language_checkboxes[0].checked == true){
+    language_checkboxes[0].click();
+  }
+  console.log("localStorage: " + localStorage.getItem("language"));
 
 }else if (localStorage.getItem("language") === "english"){
-
+  if(language_checkboxes[0].checked == false){
+    language_checkboxes[0].click();
+  }
+  console.log("localStorage: " + localStorage.getItem("language"));
 }
 
-
+// FIrefox macht Faxen mit Reload
+// TODO
+// if(String(window.performance.getEntriesByType("navigation")[0].type) === "back_forward"){
+// console.log("reloaded");
+// }
 
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 function w3_open() {
@@ -60,24 +74,36 @@ function changeLanguage(checkbox){
     for(let i = 0; i < language_checkboxes; i++){
       language_checkboxes[i].checked = true;
     }
-    for(let i = 0; i < germanContent.length; i++){
-      germanContent[i].classList.add("hidden");
-    }
-    for(let i = 0; i < englishContent.length; i++){
-      englishContent[i].classList.remove("hidden");
-    }
-    localStorage.setItem("language", "german");
+
+    translateTo("english");
+
+    localStorage.setItem("language", "english");
 
   }else{
-    for(let i = 0; i < language_checkboxes; i++){
+    for(let i = 0; i < language_checkboxes.length; i++){
       language_checkboxes[i].checked = false;
     }
+
+    translateTo("german");
+
+    localStorage.setItem("language", "german");
+  }
+}
+
+function translateTo(language){
+  if(language === "german"){
     for(let i = 0; i < germanContent.length; i++){
       germanContent[i].classList.remove("hidden");
     }
     for(let i = 0; i < englishContent.length; i++){
       englishContent[i].classList.add("hidden");
     }
-    localStorage.setItem("language", "english");
+  }else if(language === "english"){
+    for(let i = 0; i < germanContent.length; i++){
+      germanContent[i].classList.add("hidden");
+    }
+    for(let i = 0; i < englishContent.length; i++){
+      englishContent[i].classList.remove("hidden");
+    }
   }
 }
