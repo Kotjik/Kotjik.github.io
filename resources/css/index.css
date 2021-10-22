@@ -19,6 +19,10 @@ a{
   z-index: 999;
 }
 
+.w3-sidebar{
+  width: 220px;
+}
+
 /* Matching gradient
 https://mycolor.space/?hex=%231C2052&sub=1
 #1c2052
