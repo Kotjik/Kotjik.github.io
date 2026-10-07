@@ -1,1220 +1,554 @@
 <!DOCTYPE html>
-<html>
-  <title>Lebenslauf - Konstantin Kulik</title>
+<html lang="de">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="https://kit.fontawesome.com/7443abc02b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="resources/css/index.css" />
-  <style></style>
-  <body class="" id="body">
-    <!-- TODO: Downloads -->
-    <!-- TODO: Language options- Check for bugs-->
-    <!-- TODO: Dark mode? -->
+  <title>Konstantin Kulik — Software Engineer</title>
+  <meta name="description" content="Konstantin Kulik — Software Engineer at Mercedes-Benz. Full-stack development with TypeScript, React, Kotlin, Spring Boot and cloud-based systems." />
+  <meta property="og:title" content="Konstantin Kulik — Software Engineer" />
+  <meta property="og:description" content="Full-stack Software Engineer at Mercedes-Benz. TypeScript · React · Kotlin · Spring Boot · Cloud." />
+  <meta property="og:image" content="resources/img/Konstantin-Kulik_quad_1.jpg" />
+  <link rel="icon" href="resources/img/Konstantin-Kulik_quad_1.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #111a2e;
+      --card: #16213a;
+      --card-border: #233251;
+      --text: #e6ecf7;
+      --text-muted: #94a3bd;
+      --accent: #5b9dff;
+      --accent-2: #7cc8ff;
+      --accent-grad: linear-gradient(135deg, #5b9dff 0%, #7cc8ff 50%, #9d8cff 100%);
+      --radius: 16px;
+      --maxw: 1080px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(91, 157, 255, 0.35); }
 
-    <div class="w3-top">
-      <div class="w3-bar dark-blue w3-card-4" id="navigationbar">
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-wide" onclick="scrollToPoint('body')">KONSTANTIN KULIK</a>
-        <!-- Right-sided navbar links -->
-        <div class="w3-right w3-hide-small w3-hide-medium">
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('berufserfahrung');">
-            <div class="german">BERUFSERFAHRUNG</div>
-            <div class="english hidden">EXPERIENCE</div>
-          </a>
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('ausbildung');">
-            <div class="german">AUSBILDUNG</div>
-            <div class="english hidden">EDUCATION</div>
-          </a>
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('kenntnisse')">
-            <div class="german">KENNTNISSE</div>
-            <div class="english hidden">SKILLS</div>
-          </a>
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('it-projekte')">
-            <div class="german">IT-PROJEKTE</div>
-            <div class="english hidden">IT PROJECTS</div>
-          </a>
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('publications')">
-            <div class="german">VERÖFFENTLICHUNGEN</div>
-            <div class="english hidden">PUBLICATIONS</div>
-          </a>
-          <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="scrollToPoint('downloads')">
-            <div class="german">DOWNLOADS</div>
-            <div class="english hidden">DOWNLOADS</div>
-          </a>
+    /* Language toggle logic */
+    [data-lang="en"] .de, [data-lang="de"] .en { display: none !important; }
 
-          <div class="dropdown" style="float: right;">
-            <button class="dropbtn dark-blue w3-button">
-              <div class="german">EINSTELLUNGEN</div>
-              <div class="english hidden">SETTINGS</div>
-            </button>
-            <div class="dropdown-content">
-              <div class="german">Sprache</div>
-              <div class="english hidden">Language</div>
-              <div>
-                DE
-                <label class="switch">
-                  <input class="language_checkbox" onchange="changeLanguage(this);" type="checkbox" />
-                  <span class="slider round"></span>
-                </label>
-                ENG
-              </div>
-              <!-- <div>
-            Anzeige <div class="english hidden">Display</div>
-          </div>
-          <div>
-            HELL
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-            </label>
-            DUNKEL
-          </div> -->
-            </div>
-          </div>
-        </div>
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
-    </div>
+    /* ---------- Nav ---------- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(11, 17, 32, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(35, 50, 81, 0.6);
+    }
+    .nav-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-weight: 800; letter-spacing: 0.04em; text-decoration: none;
+      background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-size: 1.05rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      padding: 8px 12px; border-radius: 8px; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(91, 157, 255, 0.1); }
+    .lang-toggle {
+      display: flex; border: 1px solid var(--card-border); border-radius: 999px; overflow: hidden; margin-left: 12px;
+    }
+    .lang-toggle button {
+      border: 0; background: transparent; color: var(--text-muted); font: inherit; font-size: 0.8rem;
+      font-weight: 600; padding: 6px 14px; cursor: pointer; transition: all 0.2s;
+    }
+    .lang-toggle button.active { background: var(--accent-grad); color: #0b1120; }
+    .burger {
+      display: none; border: 0; background: transparent; color: var(--text); cursor: pointer; padding: 8px;
+    }
+    .burger svg { display: block; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; background: var(--bg-soft);
+        border-bottom: 1px solid var(--card-border); padding: 12px 16px 16px; gap: 2px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; }
+      .lang-toggle { margin: 10px 0 0; align-self: flex-start; }
+      .burger { display: block; }
+    }
 
-    <!-- Sidebar on small screens when clicking the menu icon -->
-    <nav class="w3-hide-large w3-sidebar w3-card w3-bar-block w3-animate-right text-dark-blue" id="sidebar">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">
-        <div class="german">Schließen ×</div>
-        <div class="english hidden">Close x</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('berufserfahrung');">
-        <div class="german">BERUFSERFAHRUNG</div>
-        <div class="english hidden">EXPERIENCE</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('ausbildung');">
-        <div class="german">AUSBILDUNG</div>
-        <div class="english hidden">EDUCATION</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('kenntnisse');">
-        <div class="german">KENNTNISSE</div>
-        <div class="english hidden">SKILLS</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('it-projekte');">
-        <div class="german">IT-PROJEKTE</div>
-        <div class="english hidden">IT PROJECTS</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('publications');">
-        <div class="german">VERÖFFENTLICHUNGEN</div>
-        <div class="english hidden">PUBLICATIONS</div>
-      </a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-large" onclick="w3_close(); scrollToPoint('downloads');">
-        <div class="german">DOWNLOADS</div>
-        <div class="english hidden">DOWNLOADS</div>
-      </a>
+    /* ---------- Hero ---------- */
+    header {
+      position: relative; padding: 160px 0 100px; overflow: hidden;
+    }
+    header::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(600px 400px at 80% 10%, rgba(91, 157, 255, 0.18), transparent 70%),
+        radial-gradient(500px 400px at 10% 90%, rgba(157, 140, 255, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero {
+      position: relative; display: flex; align-items: center; gap: 56px; flex-wrap: wrap;
+    }
+    .hero-text { flex: 1 1 420px; min-width: 300px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600;
+      color: var(--accent-2); border: 1px solid rgba(91, 157, 255, 0.35);
+      background: rgba(91, 157, 255, 0.08); padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; }
+    h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    h1 .grad { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-sub { margin-top: 18px; font-size: 1.1rem; color: var(--text-muted); max-width: 540px; }
+    .hero-meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 18px; color: var(--text-muted); font-size: 0.92rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-meta svg { opacity: 0.75; }
+    .hero-cta { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 12px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-primary { background: var(--accent-grad); color: #0b1120; box-shadow: 0 8px 24px rgba(91, 157, 255, 0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(91, 157, 255, 0.4); }
+    .btn-ghost { border: 1px solid var(--card-border); color: var(--text); background: rgba(22, 33, 58, 0.5); }
+    .btn-ghost:hover { background: var(--card); transform: translateY(-2px); }
+    .hero-photo { flex: 0 0 auto; }
+    .hero-photo .frame {
+      width: clamp(220px, 28vw, 300px); height: clamp(220px, 28vw, 300px);
+      border-radius: 28px; padding: 4px; background: var(--accent-grad);
+      box-shadow: 0 20px 60px rgba(91, 157, 255, 0.25); rotate: 2deg; transition: rotate 0.3s;
+    }
+    .hero-photo .frame:hover { rotate: 0deg; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; }
 
-      <div class="dropdown">
-        <a class="dropbtn w3-bar-item w3-button w3-large">
-          <div class="german">EINSTELLUNGEN</div>
-          <div class="english hidden">SETTINGS</div>
-        </a>
-        <div class="dropdown-content" style="float: left;">
-          <div class="german">Sprache</div>
-          <div class="english hidden">Language</div>
-          <div>
-            DE
-            <label class="switch">
-              <input class="language_checkbox" onchange="changeLanguage(this);" type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-            ENG
-          </div>
-        </div>
-      </div>
-    </nav>
+    /* ---------- Sections ---------- */
+    section { padding: 72px 0; }
+    .section-label {
+      font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px;
+    }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 36px; }
 
-    <!-- Overlay -->
-    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" id="overlay"></div>
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: start; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text p { color: var(--text-muted); font-size: 1.02rem; }
+    .about-text p + p { margin-top: 14px; }
+    .fact-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px;
+    }
+    .fact-card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; }
+    .fact-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(35, 50, 81, 0.6); font-size: 0.93rem; }
+    .fact-row:last-child { border-bottom: 0; }
+    .fact-row .k { color: var(--text-muted); }
+    .fact-row .v { font-weight: 600; text-align: right; }
 
-    <!-- Profile Section -->
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(91, 157, 255, 0.5); }
+    .skill-card .icon {
+      width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; margin-bottom: 16px;
+      background: rgba(91, 157, 255, 0.12); color: var(--accent-2);
+    }
+    .skill-card h3 { font-size: 1.02rem; margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      font-family: "JetBrains Mono", monospace; font-size: 0.74rem; padding: 4px 10px; border-radius: 999px;
+      background: rgba(91, 157, 255, 0.1); border: 1px solid rgba(91, 157, 255, 0.22); color: var(--accent-2);
+    }
 
-    <div class="w3-light-gray kontakt-container">
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(91, 157, 255, 0.08));
+    }
+    .t-item { position: relative; padding-bottom: 40px; }
+    .t-item:last-child { padding-bottom: 0; }
+    .t-item::before {
+      content: ""; position: absolute; left: -27px; top: 7px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent); box-shadow: 0 0 10px rgba(91, 157, 255, 0.5);
+    }
+    .t-period {
+      font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent-2); font-weight: 600; margin-bottom: 6px;
+    }
+    .t-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px 26px;
+      transition: border-color 0.2s;
+    }
+    .t-card:hover { border-color: rgba(91, 157, 255, 0.45); }
+    .t-card h3 { font-size: 1.1rem; }
+    .t-org { color: var(--text-muted); font-size: 0.92rem; margin: 3px 0 2px; font-weight: 500; }
+    .t-loc { color: var(--text-muted); font-size: 0.82rem; opacity: 0.8; }
+    .t-card ul { margin: 14px 0 0; padding-left: 18px; color: var(--text-muted); font-size: 0.94rem; }
+    .t-card li { margin-bottom: 6px; }
+    .t-card li::marker { color: var(--accent); }
+    .t-card .tags { margin-top: 16px; }
 
-      <div class="english hidden attention" style="padding-bottom: 20px; text-align: center; color: tomato;">
-        <p><i class="fas fa-exclamation-circle"></i> ATTENTION: The english language option is still work in progress and some bugs may occur. <br />
-        Further, some files which I offer for download could still be in german. Sorry for the inconvenience.
-      </p>
-      </div>
+    /* Education */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .edu-card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 26px; transition: transform 0.2s, border-color 0.2s; }
+    .edu-card:hover { transform: translateY(-4px); border-color: rgba(91, 157, 255, 0.5); }
+    .edu-card .t-period { margin-bottom: 10px; }
+    .edu-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .edu-card p { color: var(--text-muted); font-size: 0.92rem; }
 
-      <div class="w3-container kontakt">
-        <div class="w3-row w3-white doppelkarte">
-          <!-- links -->
-          <div class="w3-col m6 profile-picture-container w3-mobile">
-            <img class="profile-picture w3-image w3-mobile" src="resources/img/Konstantin-Kulik_quad_1.jpg" alt="Konstantin Kulik" />
-          </div>
-          <!-- rechts -->
-          <div class="w3-col m6 w3-mobile w3-white text-dark-blue contact-info">
-            <div class="w3-container">
-              <h2>Konstantin Kulik</h2>
-              <h3>
-                <div class="german">XR Softwareentwickler</div>
-                <div class="english hidden">XR Software Engineer</div>
-              </h3>
-            </div>
+    /* Contact */
+    .contact-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 22px; padding: 48px 32px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .contact-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(500px 240px at 50% 0%, rgba(91, 157, 255, 0.14), transparent 70%);
+      pointer-events: none;
+    }
+    .contact-card h2 { margin-bottom: 14px; }
+    .contact-card p { color: var(--text-muted); max-width: 520px; margin: 0 auto 30px; }
+    .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
 
-            <div class="w3-container w3-margin-bottom">
-              <div class="german">
-                <p>
-                  <b>E-Mail-Adresse</b> <br />
-                  kulik.konstantin@gmx.de
-                </p>
-                <p>
-                  <b>Telefon</b> <br />
-                  [removed]
-                </p>
-                <p>
-                  <b>-</b> <br />
-                  [removed]
-                </p>
-                <!--
-                <p>
-                  <b>Adresse</b> <br />
-                  Kasernstraße 64, 89231 Neu-Ulm
-                </p>
-                -->
-              </div>
+    footer { padding: 36px 0 44px; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(35, 50, 81, 0.5); }
 
-              <div class="english hidden">
-                <p>
-                  <b>E-Mail</b> <br />
-                  kulik.konstantin@gmx.de
-                </p>
-                <p>
-                  <b>Phone</b> <br />
-                  [removed]
-                </p>
-                <p>
-                  <b>-</b> <br />
-                  [removed]
-                </p>
-                <p>
-                  <!--
-                  <b>Address</b> <br />
-                  Kasernstraße 64, 89231 Neu-Ulm
-                    -->
-                </p>
-              </div>
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body data-lang="de">
 
-              <a class="download-button german" href="resources/downloads/Konstantin-Kulik_Lebenslauf.pdf" download="Konstantin-Kulik_Lebenslauf" target="_blank">
-                <button class="w3-button dark-blue w3-mobile">
-                  <div class=""><i class="fas fa-arrow-circle-down w3-margin-right"></i> Lebenslauf</div>
-                </button>
-              </a>
-              <a class="download-button english hidden" href="resources/downloads/Konstantin-Kulik_CV.pdf" download="Konstantin-Kulik_CV" target="_blank">
-                <button class="w3-button dark-blue w3-mobile">
-                  <div class=""><i class="fas fa-arrow-circle-down w3-margin-right"></i> Resume</div>
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="w3-row-padding dark-blue" id="contact-links">
-          <p class="w3-large w3-center">
-            <a href="mailto:kulik.konstantin@gmx.de" class="w3-margin"><i class="fas fa-envelope"></i></a>
-            <a href="tel:[removed]" class="w3-margin"><i class="fas fa-phone"></i></a>
-            <a href="https://www.linkedin.com/in/konstantin-kulik-1454651b0/" target="_blank" class="w3-margin"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.xing.com/profile/Konstantin_Kulik/cv" target="_blank" class="w3-margin"><i class="fab fa-xing-square"></i></a>
-            <a href="https://www.get-in-it.de/profil/310931140f45" target="_blank" class="w3-margin"><b>{IT}</b></a>
-            <a href="https://github.com/Kotjik" target="_blank" class="w3-margin"><i class="fab fa-github"></i></a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- BERUFSERFAHRUNG Section -->
-    <div class="w3-container text-dark-blue" id="berufserfahrung">
-      <h3 class="w3-center w3-margin-top w3-wide">
-        <div class="german">BERUFSERFAHRUNG</div>
-        <div class="english hidden">EXPERIENCE</div>
-      </h3>
-      <hr />
-
-      <div class="container">
-
-        <div class="timeline-block timeline-block-left">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <h3 class="german">Softwareentwickler</h3>
-            <h3 class="english hidden">Software Developer</h3>
-            <span>Mercedes-Benz Tech Motion GmbH, Ulm, Germany</span>
-
-            <div class="german">
-              <h6 class="text-dark-blue w3-hide-small">Juni 2023 - <span class="w3-tag dark-blue w3-round">Aktuell</span> <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Juni 2023 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-
-            <div class="english hidden">
-              <h6 class="text-dark-blue w3-hide-small">June 2023 - <span class="w3-tag dark-blue w3-round">Current</span> <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>June 2023 - <span class="w3-tag dark-blue w3-round">Current</span></h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Fortgeschrittene Entwicklungstätigkeiten hauptsächlich in den Bereichen AR, VR, XR und Metaverse</li>
-                <li>Arbeit sowohl an Anwendungsfällen im Fahrzeug als auch an Lösungen für Digital Twins (vorwiegend mit Unity/C#)</li>
-                <li>Full-Stack-Entwicklung mit React, TypeScript, Python und Git für benutzerfreundliche Anwendungen</li>
-                <li>Interkulturelle Zusammenarbeit mit Mercedes-Benz Indien und Mercedes-Benz Türkei</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Advanced engineering activities mainly in AR, VR, XR and metaverse area</li>
-                <li>Working on both in‑car use cases and virtual twin solutions (predominantly using Unity/C#)</li>
-                <li>Full‑stack development with React, TypeScript, Python, and Git for user‑friendly applications</li>
-                <li>Cross‑cultural cooperation with Mercedes‑Benz India and Mercedes‑Benz Turkey</li>
-              </ul>
-            </details>
-          </div>
-        </div>
-        
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="german">Wissenschaftlicher Mitarbeiter im Labor "Interactive Media Design" in der Division Information Science</h3>
-              <h3 class="english hidden">Research Assistant in the Laboratory "Interactive Media Design" in the Department of Information Science</h3>
-              <span>Nara Institute of Science and Technology - Ikoma, Nara, Japan</span>
-              <h6 class="text-dark-blue german"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022 - März 2023</h6>
-              <h6 class="text-dark-blue english hidden"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022 - March 2023</h6>
-
-              <details class="german">
-                <summary>Verantwortlichkeiten</summary>
-                <ul>
-                  <li>Entwicklung eines AR-Systems zur Unterstützung von Montage- und Wartungsaufgaben</li>
-                  <li>Arbeit mit der Microsoft HoloLens, dem Microsoft Mixed Reality Toolkit und C#</li>
-                  <li>Unterstützung bei der Durchführung von Nutzerstudien</li>
-                  <li>Besprechung von Lösungsansätzen im Team mit dem leitenden Professor </li>
-                </ul>
-              </details>
-              <details class="english hidden">
-                <summary>Responsibilities</summary>
-                <ul>
-                  <li>Developing an AR system for supporting assembly and maintenance tasks</li>
-                  <li>Working with the Microsoft HoloLens, Microsoft Mixed Reality Toolkit, and C#</li>
-                  <li>Supporting in conducting user studies</li>
-                  <li>Discuss solutions with lead professor and team</li>
-                </ul>
-              </details>
-
-            </div>
-          </div>
-
-        <div class="timeline-block timeline-block-left">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <h3 class="german">Praktikum als Full Stack Developer</h3>
-            <h3 class="english hidden">Internship as a Full Stack Developer</h3>
-            <span>NicheLabs (Pvt) Ltd, Colombo, Sri Lanka</span>
-
-            <div class="german">
-              <h6 class="text-dark-blue w3-hide-small">Januar 2022 - Februar 2022 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Januar 2022 - Februar 2022</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-
-            <div class="english hidden">
-              <h6 class="text-dark-blue w3-hide-small">January 2022 - February 2022 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>January 2022 - February 2022</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Auslandspraktikum im Rahmen des "Leadership Development Experience" Angebots von AIESEC</li>
-                <li>Selbstständiges Erlernen und Anwenden der angewandten Frameworks wie React.js, Node.js, GraphQL und MongoDB</li>
-                <li>Implementierung von Features in einem internem Softwareprojekt</li>
-                <li>Umstrukturierung der APIs, Behebung von Bugs und Umgestaltung in einem fortlaufendem Kundenprojekt</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Internship abroad as part of the "Leadership Development Experience" offered by AIESEC</li>
-                <li>Independently learn and apply frameworks such as React.js, Node.js, GraphQL and MongoDB</li>
-                <li>Implementing features in an internal software project</li>
-                <li>Restructuring APIs, fixing bugs, and redesigning in an ongoing client project</li>
-              </ul>
-            </details>
-          </div>
-        </div>
-
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="german">Junior Webentwickler</h3>
-              <h3 class="english hidden">Junior Web Developer</h3>
-              <span>Froot Media AG, Regenstauf</span>
-              <h6 class="text-dark-blue german"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2021 - Dezember 2021</h6>
-              <h6 class="text-dark-blue english hidden"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2021 - December 2021</h6>
-
-              <details class="german " >
-                <summary>Verantwortlichkeiten</summary>
-                <ul >
-                  <li>Sichtung und Bearbeitung der Wartungstickets</li>
-                  <li>Unterstützung bei der Serververwaltung und -administration</li>
-                  <li>Bearbeitung der priorisierten Webprojekte</li>
-                  <li>Unterstützung/Support der Kunden bei technischer Administration</li>
-                </ul>
-              </details>
-              <details class="english hidden">
-                <summary>Responsibilities</summary>
-                <ul>
-                  <li>Reviewing and processing maintenance tickets</li>
-                  <li>Server management and administration support</li>
-                  <li>Processing of prioritized web projects</li>
-                  <li>Assistance/support of customers in technical administration</li>
-                </ul>
-              </details>
-            </div>
-          </div>
-
-        <div class="timeline-block timeline-block-left">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <h3>Professional in Software Development & Quality</h3>
-            <span>Omniga GmbH & Co.KG, Regensburg</span>
-
-            <div class="german">
-              <h6 class="text-dark-blue w3-hide-small">November 2020 - September 2021 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - September 2021</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-
-            <div class="english hidden">
-              <h6 class="text-dark-blue w3-hide-small">September 2021 - November 2020 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - September 2021</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2020 - <span class="w3-tag dark-blue w3-round">Aktuell</span></h6> -->
-            </div>
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Exploratives und strukturiertes Testen von Features und Produkten</li>
-                <li>Durchführung von Testfällen und Testszenarien (Blackbox und Greybox)</li>
-                <li>Unterstützung in Projekten mittels verschiedener Testverfahren und Methoden</li>
-                <li>Reporting der Testergebnisse an Softwareentwickler und Stakeholder</li>
-                <li>Durchführung von Regressionstests</li>
-                <li>Kontinuierliche Wartung und Optimierung der Testskripte</li>
-                <li>Unterstützung bei der Verbesserung der vorhandenen Testprozesse</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Explorative and structured testing of features and products</li>
-                <li>Support in projects using various test procedures and methods</li>
-                <li>Reporting of test results to software developers and stakeholders</li>
-                <li>Continuous maintenance and optimization of test scripts</li>
-              </ul>
-            </details>
-
-          </div>
-        </div>
-
-        <div class="timeline-block timeline-block-right">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <h3>Professional in Customer-Relationship-Management</h3>
-            <span>Omniga GmbH & Co.KG, Regensburg</span>
-            <h6 class="text-dark-blue german"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - Oktober 2020</h6>
-            <h6 class="text-dark-blue english hidden"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2019 - October 2020</h6>
-
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Konzeption, Erstellung und Optimierung der Newsletter-Kampagnen entlang des Customer Life Cycles mit dem Tool Emarsys</li>
-                <li>Selbstständige Bearbeitung von digitalem Bildmaterial und Erstellung von Werbematerialien in Adobe Programmen</li>
-                <li>Erstellung von verkaufsstarken Texten für Newsletter und zielgruppenorientierte Online Marketing Kampagnen</li>
-                <li>Evaluierung der Performance der eigenen Kampagnen und Ableitung von Verbesserungspotenzialen gemeinsam im Team</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Conception, creation and optimization of newsletter campaigns along the customer life cycle with the tool Emarsys</li>
-                <li>Independent editing of digital images and creation of advertising materials in Adobe programs</li>
-                <li>Creation of sales-boosting texts for newsletters and target group-oriented online marketing campaigns</li>
-                <li>Evaluation of the performance of own campaigns and derivation of improvement potentials together in the team</li>
-              </ul>
-            </details>
-
-          </div>
-        </div>
-
-        <div class="timeline-block timeline-block-left">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <h3>Assistant in Product Management</h3>
-            <span>Omniga GmbH & Co.KG, Regensburg</span>
-
-            <div class="german">
-              <h6 class="text-dark-blue w3-hide-small">März 2018 - September 2019 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>März 2018 - September 2019</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>März 2018 - September 2019</h6> -->
-            </div>
-
-            <div class="english hidden">
-              <h6 class="text-dark-blue w3-hide-small">March 2018 - September 2019 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2018 - September 2019</h6>
-              <!-- <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>März 2018 - September 2019</h6> -->
-            </div>
-
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Kontrolle und Versand von Newslettern an Kunden und ehemalige Kunden</li>
-                <li>Erstellung von HTML Newsletter-Templates</li>
-                <li>Auswahl, Bearbeitung und Pflege von digitalem Bildmaterial für Aktionen, Newsletter, Website und Kooperationen mit Werbepartnern</li>
-                <li>Korrektur von Schnittlisten zu aktuellen TV-Austrahlungen</li>
-                <li>Enge Zusammenarbeit mit dem Produkt-Team sowie Unterstützung des Produktmanagements im Tagesgeschäft (neue Features, Reporting, Aktualisierungen auf der Website und in Apps, Erstellung von Tutorials)</li>
-                <li>Zusammenstellung von digtialem Bildmaterial für einen Electronic-Program-Guide</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Control and sending of newsletters to customers and former customers</li>
-                <li>Creation of HTML newsletter templates</li>
-                <li>Selection, editing and maintenance of digital image material for promotions, newsletters, website and cooperation with advertising partners</li>
-                <li>Close cooperation with the product team as well as support of the product management in the daily business (new features, reporting, updates on the website and in apps, creation of tutorials)</li>
-                <li>Compilation of digital image material for an electronic program guide</li>
-              </ul>
-            </details>
-
-          </div>
-        </div>
-
-        <div class="timeline-block timeline-block-right">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <div class="german">
-              <h3>Tutor für den Kurs "Einführung in die Informatik und Medieninformatik"</h3>
-              <span>Universität Regensburg, Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2017 - März 2018</h6>
-            </div>
-
-            <div class="english hidden">
-              <h3>Tutor for the course "Introduction to Computer Science and Media Informatics"</h3>
-              <span>University of Regensburg, Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2017 - March 2018</h6>
-            </div>
-            <details class="german " >
-              <summary>Verantwortlichkeiten</summary>
-              <ul >
-                <li>Leitung einer von mehreren Übungsgruppen</li>
-                <li>Unterstützung des Professors bei der Vorbereitung von Übungseinheiten</li>
-                <li>Unterstützung des Professors bei der Vorbereitung und Korrektur der Abschlussprüfung</li>
-                <li>Beaufsichtigung während der Prüfung</li>
-              </ul>
-            </details>
-            <details class="english hidden">
-              <summary>Responsibilities</summary>
-              <ul>
-                <li>Leading one of several exercise classes</li>
-                <li>Supporting the professor in the preparation of exercises</li>
-                <li>Supporting the professor in the preparation and correction of the final exam</li>
-                <li>Supervision during the exam</li>
-              </ul>
-            </details>
-          </div>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">KONSTANTIN KULIK</a>
+      <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="#about"><span class="de">Über mich</span><span class="en">About</span></a>
+        <a href="#skills"><span class="de">Kenntnisse</span><span class="en">Skills</span></a>
+        <a href="#experience"><span class="de">Erfahrung</span><span class="en">Experience</span></a>
+        <a href="#education"><span class="de">Ausbildung</span><span class="en">Education</span></a>
+        <a href="#contact"><span class="de">Kontakt</span><span class="en">Contact</span></a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button id="btn-de" onclick="setLang('de')">DE</button>
+          <button id="btn-en" onclick="setLang('en')">EN</button>
         </div>
       </div>
     </div>
+  </nav>
 
-    <!-- AUSBILDUNG Section -->
-    <div class="w3-container" id="ausbildung">
-      <hr />
-      <h3 class="w3-center w3-wide">
-        <div class="german">AUSBILDUNG</div>
-        <div class="english hidden">EDUCATION</div>
-      </h3>
-      <hr />
-      <div class="container">
-        <div class="german">
-
-          <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="break">Special Research Student und Special Audit Student</h3>
-              <h5 class="w3-hide-small">Auslandsforschungspraktikum & -studium</h5>
-              <h5 class="w3-hide-medium w3-hide-large">Auslandsforschungspraktikum & -studium</h5>
-              <span>Nara Institute of Science and Technology - Ikoma, Nara, Japan</span>
-              <h6 class="text-dark-blue w3-hide-small">April 2022 - März 2023 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022 - März 2023</h6>
-
-              <!--
-              <p class="w3-mobile">
-                <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                  <button class="w3-hide-small w3-mobile w3-button dark-blue">Bachelorzeugnis<i class="fas fa-arrow-circle-down w3-margin-right"></i></button>
-                  <button class="w3-hide-medium w3-hide-large w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelorzeugnis</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3>M.Sc. Medieninformatik</h3>
-              <h5 class="w3-hide-small">Notendurchschnitt: 1,5 &empty;</h5>
-              <h5 class="w3-hide-medium w3-hide-large">&empty; Notendurchschnitt: 1,5</h5>
-              <span>Universität Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2019 - November 2023</h6>
-              <!--
-              <p class="w3-mobile w3-left">
-                <a class="download-button" href="resources/downloads/Leistungsübersicht.pdf" download="Konstantin-Kulik_Master-Leistungsüberischts" target="_blank">
-                  <button class="w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Leistungsübersicht</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="break">B.A. Medieninformatik und Informationswissenschaft</h3>
-              <h5 class="w3-hide-small">Notendurchschnitt: 1,9 &empty;</h5>
-              <h5 class="w3-hide-medium w3-hide-large">&empty; Notendurchschnitt: 1,9</h5>
-              <span>Universität Regensburg</span>
-              <h6 class="text-dark-blue w3-hide-small">Oktober 2016 - Mai 2020 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oktober 2016 - Mai 2020</h6>
-              <!--
-              <p class="w3-mobile">
-                <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                  <button class="w3-hide-small w3-mobile w3-button dark-blue">Bachelorzeugnis<i class="fas fa-arrow-circle-down w3-margin-right"></i></button>
-                  <button class="w3-hide-medium w3-hide-large w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelorzeugnis</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3>Allgemeine Hochschulreife</h3>
-              <h5>&empty; Notendurchschnitt: 2,2</h5>
-              <span>Goethe-Gymnasium Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2016</h6>
-              <!--
-              <p class="w3-mobile w3-left">
-                <a class="download-button" href="resources/downloads/Abiturzeugnis.pdf" download="Konstantin-Kulik_Abiturzeugnis" target="_blank">
-                  <button class="w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Abiturzeugnis</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
+  <header id="top">
+    <div class="container hero">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="dot"></span>
+          <span class="de">Software Engineer @ Mercedes-Benz</span>
+          <span class="en">Software Engineer @ Mercedes-Benz</span>
         </div>
-
-        <div class="english hidden">
-
-          <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="break">Special Research Student and Special Audit Student</h3>
-              <h5 class="w3-hide-small">Research Internship & Study Abroad</h5>
-              <h5 class="w3-hide-medium w3-hide-large">Research Internship & Study Abroad</h5>
-              <span>Nara Institute of Science and Technology - Ikoma, Nara, Japan</span>
-              <h6 class="text-dark-blue w3-hide-small">April 2022 - March 2023 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022 - March 2023</h6>
-
-              <!--
-              <p class="w3-mobile">
-                <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                  <button class="w3-hide-small w3-mobile w3-button dark-blue">Bachelorzeugnis<i class="fas fa-arrow-circle-down w3-margin-right"></i></button>
-                  <button class="w3-hide-medium w3-hide-large w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelorzeugnis</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3>M.Sc. Media Informatics</h3>
-              <h5 class="w3-hide-small">Overall Grade: 1.5  &empty;</h5>
-              <h5 class="w3-hide-medium w3-hide-large">&empty; Overall Grade: 1.5</h5>
-              <span>University of Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2019 - November 2022</h6>
-              <!--
-              <p class="w3-mobile w3-left">
-                <a class="download-button" href="resources/downloads/Leistungsübersicht.pdf" download="Konstantin-Kulik_Master-Leistungsüberischts" target="_blank">
-                  <button class="w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Overview</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3 class="break">B.A. Media Informatics and Information Science</h3>
-              <h5 class="w3-hide-small">Overall Grade: 1.9  &empty;</h5>
-              <h5 class="w3-hide-medium w3-hide-large">&empty; Overall Grade: 1.9</h5>
-              <span>University of Regensburg</span>
-              <h6 class="text-dark-blue w3-hide-small">October 2016 - May 2020 <i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
-              <h6 class="text-dark-blue w3-hide-medium w3-hide-large"><i class="fa fa-calendar fa-fw w3-margin-right"></i>October 2016 - May 2020</h6>
-
-              <!--
-              <p class="w3-mobile">
-                <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                  <button class="w3-hide-small w3-mobile w3-button dark-blue">Bachelor's degree<i class="fas fa-arrow-circle-down w3-margin-right"></i></button>
-                  <button class="w3-hide-medium w3-hide-large w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelor's degree</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
-
-          <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-              <h3>High School Diploma</h3>
-              <h5>&empty; Overall grade: 2.2</h5>
-              <span>Goethe-Gymnasium Regensburg</span>
-              <h6 class="text-dark-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2016</h6>
-              <!--
-              <p class="w3-mobile w3-left">
-                <a class="download-button" href="resources/downloads/Abiturzeugnis.pdf" download="Konstantin-Kulik_Abiturzeugnis" target="_blank">
-                  <button class="w3-mobile w3-button dark-blue"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Diploma</button>
-                </a>
-              </p>
-            -->
-            </div>
-          </div>
+        <h1>
+          <span class="de">Hi, ich bin<br /><span class="grad">Konstantin Kulik</span></span>
+          <span class="en">Hi, I'm<br /><span class="grad">Konstantin Kulik</span></span>
+        </h1>
+        <p class="hero-sub">
+          <span class="de">Full-Stack Software Engineer mit Fokus auf TypeScript, React, Kotlin und Spring Boot — ich baue moderne Webanwendungen, bei denen technische Qualität, solide Architektur und User Experience zusammenkommen.</span>
+          <span class="en">Full-stack software engineer focused on TypeScript, React, Kotlin and Spring Boot — building modern web applications where technical quality, solid architecture and great user experience come together.</span>
+        </p>
+        <div class="hero-meta">
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="de">Regensburg, Deutschland</span>
+            <span class="en">Regensburg, Germany</span>
+          </span>
+          <span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="de">M.Sc. Medieninformatik</span>
+            <span class="en">M.Sc. Media Informatics</span>
+          </span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/konstantin-kulik/" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/Kotjik" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="frame">
+          <img src="resources/img/Konstantin-Kulik_quad_1.jpg" alt="Konstantin Kulik" />
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- KENNTNISSE Section -->
-    <div class="w3-container dark-blue" id="kenntnisse">
-      <h3 class="w3-center w3-wide w3-margin-top">
-        <div class="german">KENNTNISSE</div>
-        <div class="english hidden">SKILLS</div>
-      </h3>
-      <hr />
-      <div class="w3-row-padding">
-        <!-- Programmiersprachen & Tools -->
-        <div class="w3-col w3-third">
-          <div class="german">
-            <p class="w3-large">
-              <b><i class="fas fa-code fa-fw w3-margin-right w3-text-white"></i>Programmiersprachen</b>
-            </p>
+  <main>
+    <!-- About -->
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-label">// <span class="de">Über mich</span><span class="en">About</span></div>
+        <h2><span class="de">Wer ich bin</span><span class="en">Who I am</span></h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="de">Software Engineer mit Erfahrung in der Entwicklung moderner Full-Stack- und Webanwendungen. Mein Schwerpunkt liegt auf TypeScript und React sowie der Entwicklung von Frontend- und Backend-Komponenten — ergänzt durch Erfahrung mit Node.js, Python, PostgreSQL und cloudbasierten Systemen.</p>
+            <p class="de">In meinen bisherigen Projekten habe ich sowohl neue Anwendungen aufgebaut als auch produktive Systeme verbessert, stabilisiert und optimiert — inklusive technischer Verantwortung als Dev Lead. Aktuell arbeite ich außerdem mit Kotlin und Spring Boot und erweitere so mein Backend- und Cloud-Know-how.</p>
+            <p class="de">Darüber hinaus bringe ich einen Hintergrund in Human-Computer Interaction, Augmented Reality und User Research mit sowie internationale akademische und berufliche Erfahrung. Mich reizen besonders anspruchsvolle Software-Engineering-Probleme, bei denen technische Qualität, solide Architektur und eine großartige User Experience zusammenkommen.</p>
+            <p class="en">Software engineer with experience building modern full-stack and web applications. My main focus is on TypeScript and React, developing both frontend and backend components — complemented by experience with Node.js, Python, PostgreSQL and cloud-based systems.</p>
+            <p class="en">Throughout my previous projects, I have built new applications as well as improved, stabilized and optimized production systems — including taking on technical responsibility as a Dev Lead. I currently also work with Kotlin and Spring Boot, further expanding my backend and cloud skill set.</p>
+            <p class="en">In addition, I have a background in Human-Computer Interaction, Augmented Reality and User Research, as well as international academic and professional experience. I am particularly drawn to challenging software engineering problems where technical quality, solid architecture and a great user experience come together.</p>
           </div>
-          <div class="english hidden">
-            <p class="w3-large">
-              <b><i class="fas fa-code fa-fw w3-margin-right w3-text-white"></i>Programming Languages</b>
-            </p>
-          </div>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Java</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Python</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">C</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">C#</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">PHP</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">SQL</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">XML</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">HTML</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">CSS</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">JavaScript</span>
-           <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">React</span>
-          <br />
-
-          <div class="german">
-            <p class="w3-large">
-              <b><i class="far fa-window-restore fa-fw w3-margin-right w3-text-white"></i>Tools und Technologien</b>
-            </p>
-          </div>
-          <div class="english hidden">
-            <p class="w3-large">
-              <b><i class="far fa-window-restore fa-fw w3-margin-right w3-text-white"></i>Tools and Technologies</b>
-            </p>
-          </div>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Github</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Android Studio</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Visual Studio</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">IntelliJ IDEA</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Unity</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Adobe Photoshop</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Adobe Indesign</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Microsoft Excel</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Microsoft Word</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Microsoft Powerpoint</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Microsoft Outlook</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Microsoft Windows</span>
-          <span class="w3-tag w3-white w3-round w3-margin-right w3-margin-bottom">Linux</span>
-        </div>
-
-        <!-- Qualifikationen -->
-        <div class="w3-col w3-third">
-          <!-- <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>Photography</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
-      </div> -->
-
-          <div class="german">
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-certificate fa-fw w3-margin-right w3-text-white"></i>Qualifikationen</b>
-            </p>
-          </div>
-          <div class="english hidden">
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-certificate fa-fw w3-margin-right w3-text-white"></i>Qualifications</b>
-            </p>
-          </div>
-
-          <p>Microsoft Office</p>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 95%;"></div>
-          </div>
-          <div class="german"><p>Anwendungsprogrammierung / Softwareentwicklung</p></div>
-          <div class="english hidden"><p>Software Development</p></div>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 90%;"></div>
-          </div>
-          <div class="german"><p>Webentwicklung</p></div>
-          <div class="english hidden"><p>Web Development</p></div>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 90%;"></div>
-          </div>
-          <p>UX / UI</p>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 90%;"></div>
-          </div>
-          <div class="german"><p>Projektmanagement</p></div>
-          <div class="english hidden"><p>Project Management</p></div>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 80%;"></div>
-          </div>
-          <div class="german"><p>Bildbearbeitung in Adobe Photoshop</p></div>
-          <div class="english hidden"><p>Image editing in Adobe Photoshop</p></div>
-          <div class="w3-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-white" style="height: 18px; width: 75%;"></div>
-          </div>
-        </div>
-
-        <!-- Sprachen & Führerschein -->
-        <div class="w3-col w3-third">
-          <div class="german">
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-language fa-fw w3-margin-right w3-text-white"></i>Sprachen</b>
-            </p>
-            <p>Deutsch</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 100%;"></div>
-            </div>
-            <p>Englisch</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 85%;"></div>
-            </div>
-            <p>Russisch</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 60%;"></div>
-            </div>
-            <br />
-
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-address-card fa-fw w3-margin-right w3-text-white"></i>Führerschein</b>
-            </p>
-            <p>Klasse B</p>
-          </div>
-
-          <div class="english hidden">
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-language fa-fw w3-margin-right w3-text-white"></i>Languages</b>
-            </p>
-            <p>German</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 100%;"></div>
-            </div>
-            <p>English</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 85%;"></div>
-            </div>
-            <p>Russian</p>
-            <div class="w3-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-white" style="height: 18px; width: 60%;"></div>
-            </div>
-            <br />
-
-            <p class="w3-large w3-text-theme">
-              <b><i class="fas fa-address-card fa-fw w3-margin-right w3-text-white"></i>Driving License</b>
-            </p>
-            <p>German Class B</p>
+          <div class="fact-card">
+            <h3><span class="de">Kurzprofil</span><span class="en">Quick facts</span></h3>
+            <div class="fact-row"><span class="k"><span class="de">Rolle</span><span class="en">Role</span></span><span class="v">Software Engineer</span></div>
+            <div class="fact-row"><span class="k"><span class="de">Unternehmen</span><span class="en">Company</span></span><span class="v">Mercedes-Benz AG</span></div>
+            <div class="fact-row"><span class="k"><span class="de">Standort</span><span class="en">Location</span></span><span class="v">Regensburg, DE</span></div>
+            <div class="fact-row"><span class="k"><span class="de">Abschluss</span><span class="en">Degree</span></span><span class="v">M.Sc. (1,5)</span></div>
+            <div class="fact-row"><span class="k"><span class="de">Erfahrung</span><span class="en">Experience</span></span><span class="v">Full-Stack · Dev Lead</span></div>
+            <div class="fact-row"><span class="k"><span class="de">Sprachen</span><span class="en">Languages</span></span><span class="v"><span class="de">Deutsch · Englisch</span><span class="en">German · English</span></span></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- IT-PROJEKTE Section -->
-    <div class="w3-container w3-padding-16" id="it-projekte">
-      <div class="german">
-        <h3 class="w3-center w3-wide">IT-PROJEKTE</h3>
-        <hr />
-        <!-- First row -->
-        <div class="w3-row-padding" style="margin-top: 64px;">
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Remote-Methoden.jpg" class="it-project-image" alt="John" />
-              <div class="w3-container">
-                <h3>Online Remote Usability Methodenratgeber</h3>
-                <p class="w3-opacity">Website</p>
-                <p>Wissens- und Methodenplattform für Remote-Studien</p>
-                <p>
-                  <a href="https://kotjik.github.io/Remote-Methoden/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Zur Github-Page<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container reveal">
+        <div class="section-label">// <span class="de">Kenntnisse</span><span class="en">Skills</span></div>
+        <h2><span class="de">Womit ich arbeite</span><span class="en">What I work with</span></h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Angular</span><span class="tag">Tailwind CSS</span><span class="tag">HTML/CSS</span>
             </div>
           </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Elektronisches-Haushaltsbuch.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Elektronisches Haushaltsbuch</h3>
-                <p class="w3-opacity">Android-App</p>
-                <p>Mobile Anwendung für die Android-Plattform für das Pflegen eines elektronischen Haushaltsbuchs</p>
-                <p>
-                  <a href="https://kotjik.github.io/Elektronisches-Haushaltsbuch/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Zur Github-Page<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+          <div class="skill-card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+            <h3>Backend</h3>
+            <div class="tags">
+              <span class="tag">Kotlin</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">PostgreSQL</span><span class="tag">GraphQL</span>
             </div>
           </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Flappy-Dragon.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Flappy Dragon</h3>
-                <p class="w3-opacity">Computerspiel</p>
-                <p>Geschicklichkeits- und Jump-&-Run Videospiel entwickelt mit Unity</p>
-                <p>
-                  <a href="https://kotjik.github.io/Flappy-Dragon/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Zur Github-Page<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+          <div class="skill-card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+            <h3>Cloud &amp; DevOps</h3>
+            <div class="tags">
+              <span class="tag">Microsoft Azure</span><span class="tag">Cloud Foundry</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">Event-driven</span>
             </div>
           </div>
-        </div>
-        <!-- Second Row -->
-        <div class="w3-row-padding">
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/fruit-memory.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Fruit Memory</h3>
-                <p class="w3-opacity">Computerspiel</p>
-                <p>Klassisches Kartenspiel Memory geschrieben in Python mit einer GUI</p>
-                <p>
-                  <a href="https://github.com/kallutox/python_project_memory" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Zum Github-Repository<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Zettelkasten-Online.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Zettelkasten Online</h3>
-                <p class="w3-opacity">Website</p>
-                <p>Anwendung zur Verwaltung und der übersichtlichen Darstellung von gesammelten Notizen und Literatur</p>
-                <p>
-                  <a href="https://kotjik.github.io/Zettelkasten-Online/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Zur Github-Page<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+          <div class="skill-card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg></div>
+            <h3><span class="de">Weitere Schwerpunkte</span><span class="en">Beyond the stack</span></h3>
+            <div class="tags">
+              <span class="tag">Dev Lead</span><span class="tag">HCI</span><span class="tag">Augmented Reality</span><span class="tag">Unity / C#</span><span class="tag">User Research</span><span class="tag">Test Automation</span>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="english hidden">
-        <h3 class="w3-center w3-wide">IT-PROJECTS</h3>
-        <hr />
-        <!-- First row -->
-        <div class="w3-row-padding" style="margin-top: 64px;">
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Remote-Methoden.jpg" class="it-project-image" alt="John" />
-              <div class="w3-container">
-                <h3>Online Remote Usability Method Guide</h3>
-                <p class="w3-opacity">Website</p>
-                <p>Knowledge and methodology platform for remote studies</p>
-                <p>
-                  <a href="https://kotjik.github.io/Remote-Methoden/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Github Page (German)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container reveal">
+        <div class="section-label">// <span class="de">Berufserfahrung</span><span class="en">Experience</span></div>
+        <h2><span class="de">Mein Werdegang</span><span class="en">Where I've worked</span></h2>
+        <div class="timeline">
+
+          <div class="t-item">
+            <div class="t-period"><span class="de">Jul 2026 – heute</span><span class="en">Jul 2026 – present</span></div>
+            <div class="t-card">
+              <h3>Software Engineer</h3>
+              <p class="t-org">Mercedes-Benz AG · <span class="de">Vollzeit</span><span class="en">Full-time</span></p>
+              <p class="t-loc">Stuttgart, <span class="de">Deutschland</span><span class="en">Germany</span> · Hybrid</p>
+              <ul class="de">
+                <li>Entwicklung und Weiterentwicklung moderner Webanwendungen mit Kotlin, Spring Boot und Tailwind CSS im Bereich Credit Solutions.</li>
+                <li>Mitarbeit an einer international eingesetzten Anti-Money-Laundering-Plattform mit Fokus auf Softwarequalität, Wartbarkeit und technische Weiterentwicklung.</li>
+                <li>Entwicklung von Frontend-Features und Backend-Services in einer event-driven, cloudbasierten Systemlandschaft.</li>
+              </ul>
+              <ul class="en">
+                <li>Developing and evolving modern web applications with Kotlin, Spring Boot and Tailwind CSS in the Credit Solutions domain.</li>
+                <li>Contributing to an internationally deployed anti-money-laundering platform with a focus on software quality, maintainability and technical evolution.</li>
+                <li>Building frontend features and backend services in an event-driven, cloud-based system landscape.</li>
+              </ul>
+              <div class="tags"><span class="tag">Kotlin</span><span class="tag">Spring Boot</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span></div>
             </div>
           </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Elektronisches-Haushaltsbuch.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Electronic budget book</h3>
-                <p class="w3-opacity">Android App</p>
-                <p>Mobile application for the Android platform for maintaining an electronic budget book</p>
-                <p>
-                  <a href="https://kotjik.github.io/Elektronisches-Haushaltsbuch/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Github Page (German)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+
+          <div class="t-item">
+            <div class="t-period"><span class="de">Jun 2023 – Jun 2026</span><span class="en">Jun 2023 – Jun 2026</span></div>
+            <div class="t-card">
+              <h3>Software Engineer</h3>
+              <p class="t-org">Mercedes-Benz Tech Innovation · <span class="de">Vollzeit</span><span class="en">Full-time</span></p>
+              <p class="t-loc">Ulm, <span class="de">Deutschland</span><span class="en">Germany</span> · Hybrid</p>
+              <ul class="de">
+                <li>Full-Stack-Entwicklung moderner Webanwendungen mit TypeScript, React, Angular, Node.js, Python, Java/Spring Boot und PostgreSQL.</li>
+                <li>Weiterentwicklung und Stabilisierung produktiver Anwendungen mit Fokus auf technische Analyse, Fehlerbehebung und Softwarequalität.</li>
+                <li>Seit 01/2025 technische Verantwortung als Dev Lead eines Full-Stack-Projekts inklusive technischer Konzeption und Koordination von Entwicklungsentscheidungen.</li>
+                <li>Erfahrung mit Cloud- und DevOps-Umgebungen (Microsoft Azure, Cloud Foundry, Git, CI/CD) sowie Entwicklung mit Unity und C#.</li>
+              </ul>
+              <ul class="en">
+                <li>Full-stack development of modern web applications using TypeScript, React, Angular, Node.js, Python, Java/Spring Boot and PostgreSQL.</li>
+                <li>Enhancing and stabilizing production applications with a focus on technical analysis, bug fixing and software quality.</li>
+                <li>Since 01/2025, technical responsibility as Dev Lead of a full-stack project, including technical design and coordination of development decisions.</li>
+                <li>Experience with cloud and DevOps environments (Microsoft Azure, Cloud Foundry, Git, CI/CD) as well as development with Unity and C#.</li>
+              </ul>
+              <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Azure</span><span class="tag">Dev Lead</span></div>
             </div>
           </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Flappy-Dragon.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Flappy Dragon</h3>
-                <p class="w3-opacity">Video Game</p>
-                <p>Jump & Run Videospiel video game developed with Unity</p>
-                <p>
-                  <a href="https://kotjik.github.io/Flappy-Dragon/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Github Page (German)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
+
+          <div class="t-item">
+            <div class="t-period"><span class="de">Apr 2022 – Mär 2023</span><span class="en">Apr 2022 – Mar 2023</span></div>
+            <div class="t-card">
+              <h3><span class="de">Wissenschaftlicher Mitarbeiter</span><span class="en">Research Assistant</span></h3>
+              <p class="t-org">Nara Institute of Science and Technology · <span class="de">Teilzeit</span><span class="en">Part-time</span></p>
+              <p class="t-loc">Ikoma, <span class="de">Japan</span><span class="en">Japan</span> · On-site</p>
+              <ul class="de">
+                <li>Entwicklung eines AR-Systems für Montage- und Wartungsaufgaben mit Microsoft HoloLens, MRTK und C#.</li>
+                <li>Unterstützung bei Nutzerstudien und technische Abstimmung von Lösungsansätzen im Forschungsteam.</li>
+              </ul>
+              <ul class="en">
+                <li>Developed an AR system for assembly and maintenance tasks using Microsoft HoloLens, MRTK and C#.</li>
+                <li>Supported user studies and aligned technical solution approaches within the research team.</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">HoloLens</span><span class="tag">AR</span></div>
             </div>
           </div>
+
+          <div class="t-item">
+            <div class="t-period"><span class="de">Jan 2022 – Feb 2022</span><span class="en">Jan 2022 – Feb 2022</span></div>
+            <div class="t-card">
+              <h3><span class="de">Full-Stack-Entwickler</span><span class="en">Full-Stack Developer</span></h3>
+              <p class="t-org">Nichelabs (Pvt) Ltd · <span class="de">Praktikum</span><span class="en">Internship</span></p>
+              <p class="t-loc">Colombo, Sri Lanka · On-site</p>
+              <ul class="de">
+                <li>Entwicklung und Erweiterung von Webanwendungen mit React.js, Node.js, GraphQL und MongoDB.</li>
+                <li>Implementierung neuer Features, Überarbeitung von APIs und Behebung von Softwarefehlern.</li>
+              </ul>
+              <ul class="en">
+                <li>Developed and extended web applications with React.js, Node.js, GraphQL and MongoDB.</li>
+                <li>Implemented new features, reworked APIs and fixed software defects.</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">GraphQL</span><span class="tag">MongoDB</span></div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-period"><span class="de">Mär 2018 – Sep 2021</span><span class="en">Mar 2018 – Sep 2021</span></div>
+            <div class="t-card">
+              <h3><span class="de">Werkstudent — Software, QA &amp; Produkt</span><span class="en">Working Student — Software, QA &amp; Product</span></h3>
+              <p class="t-org">Omniga GmbH &amp; Co. KG · <span class="de">Werkstudium</span><span class="en">Work study</span></p>
+              <p class="t-loc">Regensburg, <span class="de">Deutschland</span><span class="en">Germany</span> · On-site</p>
+              <ul class="de">
+                <li>Software Testing, Testautomatisierung und Qualitätssicherung mit Python.</li>
+                <li>Planung und Optimierung digitaler Marketingkampagnen sowie Analyse der Kampagnenperformance.</li>
+                <li>Unterstützung des Produktmanagements bei digitalen Produkten, Websites und Apps.</li>
+              </ul>
+              <ul class="en">
+                <li>Software testing, test automation and quality assurance with Python.</li>
+                <li>Planned and optimized digital marketing campaigns and analyzed campaign performance.</li>
+                <li>Supported product management for digital products, websites and apps.</li>
+              </ul>
+              <div class="tags"><span class="tag">Python</span><span class="tag">Test Automation</span><span class="tag">QA</span></div>
+            </div>
+          </div>
+
         </div>
-        <!-- Second Row -->
-        <div class="w3-row-padding">
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/fruit-memory.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Fruit Memory</h3>
-                <p class="w3-opacity">Video Game</p>
-                <p>Classic card game Memory written in Python with a GUI</p>
-                <p>
-                  <a href="https://github.com/kallutox/python_project_memory" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Github Repository<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="w3-col w3-third w3-margin-bottom">
-            <div class="w3-card">
-              <img src="resources/img/Zettelkasten-Online.jpg" class="it-project-image" alt="Jane" />
-              <div class="w3-container">
-                <h3>Card Box Online</h3>
-                <p class="w3-opacity">Website</p>
-                <p>Application for the management and the clear presentation of collected notes and literature</p>
-                <p>
-                  <a href="https://kotjik.github.io/Zettelkasten-Online/" target="_blank">
-                    <button class="w3-button dark-blue w3-block">Github Page (German)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-                  </a>
-                </p>
+      </div>
+    </section>
 
-              </div>
-            </div>
+    <!-- Education -->
+    <section id="education">
+      <div class="container reveal">
+        <div class="section-label">// <span class="de">Ausbildung</span><span class="en">Education</span></div>
+        <h2><span class="de">Akademischer Weg</span><span class="en">Academic background</span></h2>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="t-period">2019 – 2023</div>
+            <h3><span class="de">M.Sc. Medieninformatik</span><span class="en">M.Sc. Media Informatics</span></h3>
+            <p><span class="de">Universität Regensburg · Note: 1,5</span><span class="en">University of Regensburg · Grade: 1.5</span></p>
+          </div>
+          <div class="edu-card">
+            <div class="t-period">2022 – 2023</div>
+            <h3><span class="de">Forschungspraktikum, Information Science</span><span class="en">Research Internship, Information Science</span></h3>
+            <p><span class="de">Nara Institute of Science and Technology, Japan · Special Research &amp; Audit Student</span><span class="en">Nara Institute of Science and Technology, Japan · Special Research &amp; Audit Student</span></p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Veröffentlichungen Section -->
-    <div class="w3-container w3-padding-16 w3-margin-bottom" id="publications">
-      <hr />
-      <h3 class="w3-center w3-wide german">VERÖFFENTLICHUNGEN</h3>
-      <h3 class="w3-center w3-wide english hidden">PUBLICATIONS</h3>
-      <hr />
-      <div class="w3-row-padding w3-center">
-        <div class="w3-third">
-          <p>Ueda, S., Tainaka, K., Shen, Y., Ueda, S., Kulik, K., Fujimoto, Y., Sawabe, T., Kanbara, M., & Kato, H. (2023). General Software Platform for Designing and Developing of Augmented Reality Task Support Systems. In SIGGRAPH Asia 2023 XR (pp. 13). Association for Computing Machinery.</p>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container reveal">
+        <div class="contact-card">
+          <div class="section-label">// <span class="de">Kontakt</span><span class="en">Contact</span></div>
+          <h2><span class="de">Lass uns connecten</span><span class="en">Let's connect</span></h2>
           <p>
-            <a href="https://doi.org/10.1145/3610549.3614599" target="_blank">
-              <button class="w3-button dark-blue w3-mobile" style="width: 48%;">DOI (ACM)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-            </a>
-            <br/>
+            <span class="de">Ob spannendes Projekt, technischer Austausch oder einfach ein Hallo — ich freue mich über deine Nachricht auf LinkedIn.</span>
+            <span class="en">Whether it's an exciting project, a technical exchange or just a hello — feel free to reach out on LinkedIn.</span>
           </p>
-
-        </div>
-        <div class="w3-third">
-          <p>Kulik, K. (2021). Entwicklung und Evaluation eines Chatbots für den Einsatz in Tagebuchstudien (Master's Thesis, Universität Regensburg).</p>
-          <p>
-            <a href="https://www.regensburger-katalog.de/TouchPoint/perma.do?q=+1035%3D%22BV047591427%22+IN+%5B2%5D&v=ubr&l=de" target="_blank">
-              <button class="w3-button dark-blue w3-mobile" style="width: 48%;">Regensburger Katalog<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-            </a>
-            <br/>
-          </p>
-          
-
-        </div>
-        
-        
-        <div class="w3-third">
-          <p>Wechsler, T. F., Brockelmann, M., Kulik, K., Kopf, F. M., Kocur, M., Lankes, M., ... & Wolff, C. (2021, October). SpEYEders: Adults’ and children’s affective responses during immersive playful gaze interactions transforming virtual spiders. In Extended Abstracts of the 2021 Annual Symposium on Computer-Human Interaction in Play (pp. 74-79).</p>
-
-          <p>
-            <a href="https://doi.org/10.1145/3450337.3483463" target="_blank">
-              <button class="w3-button dark-blue w3-mobile " style="width: 48%;">DOI (ACM)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-            </a>
-            <br/>
-          </p>
-
-        </div>
-
-        <div class="w3-third">
-          <p>Kulik, K., Achmann, M., & Wolff, C. (2021). Evaluation of a Chat Interface for Diary Studies in Information Behavior Research. Proceedings of the Association for Information Science and Technology, 58(1), 762-764.</p>
-          <p>
-            <a href="https://doi.org/10.1002/pra2.554" target="_blank">
-              <button class="w3-button dark-blue w3-mobile" style="width: 48%;">DOI (ASIS&T)<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-            </a>
-            <br/>
-          </p>
-
-        </div>
-        <div class="w3-third">
-          <p>Kulik, K. (2020). Effekte von Feedbackmechanismen während einer virtuellen Spinnenexposition (Bachelor's Thesis, Universität Regensburg).</p>
-          <p>
-            <a href="https://www.regensburger-katalog.de/TouchPoint/perma.do?q=+1035%3D%22BV047591413%22+IN+%5B2%5D&v=ubr&l=de" target="_blank">
-              <button class="w3-button dark-blue w3-mobile" style="width: 48%;">Regensburger Katalog<i class="fas fa-external-link-alt w3-margin-left"></i></button>
-            </a>
-            <br/>
-          </p>
-
-        </div>
-        
-      </div>
-
-    </div>
-
-    <!-- Download Section -->
-    <div class="w3-container w3-light-gray w3-padding-16" id="downloads">
-      <h3 class="w3-center w3-wide">DOWNLOADS</h3>
-      <hr style="border-color: darkgray;" />
-      <div class="german">
-        <div class="w3-row-padding w3-center" style="margin-top: 64px;">
-          <div class="w3-100">
-            <i class="fas fa-user w3-margin-bottom w3-jumbo w3-center text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Konstantin-Kulik_Lebenslauf.pdf" download="Konstantin-Kulik_Lebenslauf" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i> Lebenslauf</button>
-              </a>
-            </p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/konstantin-kulik/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/Kotjik" target="_blank" rel="noopener">GitHub</a>
           </div>
-          <!--
-          <div class="w3-quarter">
-            <i class="fa fa-graduation-cap w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Abiturzeugnis.pdf" download="Konstantin-Kulik_Abiturzeugnis" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i> Abiturzeugnis</button>
-              </a>
-            </p>
-          </div>
-          <div class="w3-quarter">
-            <i class="fas fa-university w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelorzeugnis</button>
-              </a>
-            </p>
-          </div>
-          <div class="w3-quarter">
-            <i class="far fa-list-alt w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Leistungsübersicht.pdf" download="Konstantin-Kulik_Master-Leistungsübersicht" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Leistungsübersicht</button>
-              </a>
-            </p>
-          </div> -->
         </div>
       </div>
-      <div class="english hidden">
-        <div class="w3-row-padding w3-center" style="margin-top: 64px;">
-          <div class="w3-100">
-            <i class="fas fa-user w3-margin-bottom w3-jumbo w3-center text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button english hidden" href="resources/downloads/Konstantin-Kulik_CV.pdf" download="Konstantin-Kulik_CV" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i> Resume</button>
-              </a>
-            </p>
-          </div>
-          <!--
-          <div class="w3-quarter">
-            <i class="fa fa-graduation-cap w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Abiturzeugnis.pdf" download="Konstantin-Kulik_Abiturzeugnis" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i> High School Diploma</button>
-              </a>
-            </p>
-          </div>
-          <div class="w3-quarter">
-            <i class="fas fa-university w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Bachelorzeugnis_DE.pdf" download="Konstantin-Kulik_Bachelorzeugnis" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Bachelor's Degree</button>
-              </a>
-            </p>
-          </div>
-          <div class="w3-quarter">
-            <i class="far fa-list-alt w3-margin-bottom w3-jumbo text-dark-blue"></i>
-            <p class="w3-xlarge">
-              <a class="download-button" href="resources/downloads/Leistungsübersicht.pdf" download="Konstantin-Kulik_Master-Leistungsübersicht" target="_blank">
-                <button class="w3-button dark-blue w3-mobile"><i class="fas fa-arrow-circle-down w3-margin-right"></i>Course Overview</button>
-              </a>
-            </p>
-          </div> -->
-        </div>
-      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Konstantin Kulik ·
+      <span class="de">Erstellt mit purem HTML &amp; CSS</span>
+      <span class="en">Built with plain HTML &amp; CSS</span>
     </div>
+  </footer>
 
-    <footer class="w3-container dark-blue w3-padding-bottom" id="footer">
-      <!-- <h5 class="w3-center w3-margin-top">Kontakt</h5> -->
-      <!-- <div class="w3-row-padding">
+  <script>
+    function setLang(lang) {
+      document.body.dataset.lang = lang;
+      document.documentElement.lang = lang;
+      document.getElementById("btn-de").classList.toggle("active", lang === "de");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+    }
 
-    <div class="w3-col m6 w3-right-align">
-        <h6>Konstantin Kulik</h6>
-        <h7>Softwareentwickler & UX-Designer</h7>
-    </div>
+    // Initial language: saved preference > browser language
+    let initial = "de";
+    try { initial = localStorage.getItem("lang") || (navigator.language.startsWith("de") ? "de" : "en"); } catch (e) {}
+    setLang(initial);
 
-    <div class="w3-col m6">
-        <h6>kulik.konstantin@gmx.de</h6>
-        <h6>[removed]</h6>
-    </div>
-  </div> -->
-      <h4 class="w3-center w3-margin-top">Konstantin Kulik</h4>
-      <h5 class="w3-center german">Softwareentwickler</h5>
-      <h5 class="w3-center english hidden">Software Engineer</h5>
-      <p class="w3-large w3-center">
-        <a href="mailto:kulik.konstantin@gmx.de" class="w3-margin" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="tel:[removed]" class="w3-margin" target="_blank"><i class="fas fa-phone"></i></a>
-        <a href="https://www.linkedin.com/in/konstantin-kulik-1454651b0/" class="w3-margin" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.xing.com/profile/Konstantin_Kulik/cv" class="w3-margin" target="_blank"><i class="fab fa-xing-square"></i></a>
-        <a href="https://www.get-in-it.de/profil/310931140f45" target="_blank" class="w3-margin"><b>{IT}</b></a>
-        <a href="https://github.com/Kotjik" class="w3-margin" target="_blank"><i class="fab fa-github"></i></a>
-      </p>
-    </footer>
+    // Close mobile menu on link click
+    document.querySelectorAll(".nav-links a").forEach(a =>
+      a.addEventListener("click", () => document.querySelector(".nav-links").classList.remove("open"))
+    );
 
-    <!-- Back-To-Top-Button -->
-    <button class="w3-button dark-blue w3-card-4 w3-border" onclick="scrollToTopSmooth();" id="up-button" title="Nach oben"><i class="fa fa-arrow-up"></i></button>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    <script src="resources/js/index.js"></script>
-    <script src="resources/js/backtotop.js"></script>
-  </body>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
